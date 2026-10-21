@@ -1,7 +1,6 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { FaDumbbell } from "react-icons/fa";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -24,13 +23,11 @@ export default function Navbar() {
       <nav className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:px-6">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
-          <span className="flex h-9 w-9 items-center justify-center rounded-md bg-accent text-black">
-            <FaDumbbell />
-          </span>
-          <span className="font-display text-xl font-bold tracking-wide">
-            FITLOG
-          </span>
-        </Link>
+  <img src="/assets/logo.png" alt="FitLog logo" className="h-9 w-9 object-contain" />
+  <span className="font-display text-xl font-bold tracking-wide">
+    FITLOG
+  </span>
+</Link>
 
         {/* Links */}
         <ul className="flex items-center gap-4 sm:gap-8">
