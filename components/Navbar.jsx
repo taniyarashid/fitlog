@@ -1,13 +1,13 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-
+import { usePlan } from "@/context/PlanContext";
 export default function Navbar() {
   const pathname = usePathname();
 
-  // temporary numbers, we'll connect real data later
-  const planCount = 0;
-  const savedCount = 0;
+  const { plan, saved } = usePlan();
+  const planCount = plan.length;
+  const savedCount = saved.length;
 
   const links = [
     {

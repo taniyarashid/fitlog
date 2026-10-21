@@ -1,6 +1,8 @@
 import { Oswald, Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import { PlanProvider } from "@/context/PlanContext";
+import { Toaster } from "react-hot-toast";
 
 const oswald = Oswald({ subsets: ["latin"], variable: "--font-oswald" });
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -12,11 +14,23 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${oswald.variable} ${inter.variable}`}>
+    <html
+  lang="en"
+  data-scroll-behavior="smooth"
+  className={`${oswald.variable} ${inter.variable}`}
+>
       <body className="bg-bg text-white font-body antialiased">
-        <Navbar />
-        {children}
-      </body>
+  <PlanProvider>
+    <Navbar />
+    {children}
+    <Toaster
+      position="top-center"
+      toastOptions={{
+        style: { background: "#151515", color: "#fff", border: "1px solid #2a2a2a" },
+      }}
+    />
+  </PlanProvider>
+</body>
     </html>
   );
 }
