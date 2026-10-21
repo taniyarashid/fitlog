@@ -1,10 +1,14 @@
+import Hero from "@/components/Hero";
+
 export default function Home() {
   return (
-    <main className="p-10">
-      <h1 className="font-display text-5xl uppercase text-accent">
-        Train with intent
-      </h1>
-      <p className="mt-4 text-muted">If this looks right, the setup works.</p>
+    <main>
+      <Hero />
+
+      {/* temporary placeholder, we'll build the library here next */}
+      <section id="library" className="mx-auto max-w-7xl px-4 py-20 sm:px-6">
+        <h2 className="font-display text-4xl uppercase">The Library</h2>
+      </section>
     </main>
   );
 }
