@@ -2,7 +2,7 @@
 
 FitLog is a dark, no-nonsense gym companion. Browse a library of lifts, lock your favorites into today's plan, save others for later, and watch your daily workout totals add up.
 
-🔗 **Live Site:** _add your link here after deployment_
+🔗 **Live Site:** https://fitlog-ten-omega.vercel.app/
 
 ## 🛠️ Technologies Used
 
