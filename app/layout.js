@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import { PlanProvider } from "@/context/PlanContext";
 import { Toaster } from "react-hot-toast";
 import Footer from "@/components/Footer";
+import { Suspense } from "react";
 
 const oswald = Oswald({ subsets: ["latin"], variable: "--font-oswald" });
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -22,7 +23,9 @@ export default function RootLayout({ children }) {
 >
       <body className="bg-bg text-white font-body antialiased">
   <PlanProvider>
+    <Suspense fallback={<header className="h-[61px] border-b border-line bg-bg" />}>
     <Navbar />
+    </Suspense>
     {children}
     <Footer />
     <Toaster

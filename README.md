@@ -26,7 +26,7 @@ FitLog is a dark, no-nonsense gym companion. Browse a library of lifts, lock you
 ## 🚀 Getting Started
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/fitlog.git
+git clone https://github.com/taniyarashid/fitlog.git
 cd fitlog
 npm install
 npm run dev

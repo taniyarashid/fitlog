@@ -2,13 +2,21 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { usePlan } from "@/context/PlanContext";
+import { useEffect, useState } from "react";
+
 export default function Navbar() {
   const pathname = usePathname();
 
   const { plan, saved } = usePlan();
-  const planCount = plan.length;
-  const savedCount = saved.length;
 
+
+const [mounted, setMounted] = useState(false);
+useEffect(() => {
+  setMounted(true);
+}, []);
+
+const planCount = mounted ? plan.length : 0;
+const savedCount = mounted ? saved.length : 0;
   const links = [
     {
       href: "/",
@@ -24,18 +32,18 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
   <img src="/assets/logo.png" alt="FitLog logo" className="h-9 w-9 object-contain" />
-  <span className="font-display text-xl font-bold tracking-wide">
-    FITLOG
-  </span>
+  <span className="hidden font-display text-xl font-bold tracking-wide sm:inline">
+  FITLOG
+</span>
 </Link>
 
         {/* Links */}
-        <ul className="flex items-center gap-4 sm:gap-8">
+        <ul className="flex items-center gap-3 sm:gap-8">
           {links.map((link) => (
             <li key={link.href}>
               <Link
                 href={link.href}
-                className={`font-display text-sm uppercase tracking-wider sm:text-base ${
+                className={`whitespace-nowrap font-display text-xs uppercase tracking-wider sm:text-base ${
                   link.active
                     ? "border-b-2 border-accent pb-1 text-accent"
                     : "text-muted hover:text-white"
@@ -51,13 +59,13 @@ export default function Navbar() {
         <div className="flex items-center gap-2">
           <Link
             href="/my-plan"
-            className="rounded-full bg-accent px-3 py-1 text-xs font-semibold text-black sm:text-sm"
+            className="whitespace-nowrap rounded-full bg-accent px-3 py-1 text-xs font-semibold text-black sm:text-sm"
           >
             Plan {planCount}
           </Link>
           <Link
             href="/my-plan"
-            className="rounded-full border border-accent px-3 py-1 text-xs font-semibold text-accent sm:text-sm"
+            className="whitespace-nowrap rounded-full bg-accent px-3 py-1 text-xs font-semibold text-black sm:text-sm"
           >
             Saved {savedCount}
           </Link>

@@ -7,9 +7,9 @@ const PlanContext = createContext();
 export const usePlan = () => useContext(PlanContext);
 
 export function PlanProvider({ children }) {
-  const [plan, setPlan] = useState([]); // [{ id, done }]
-  const [saved, setSaved] = useState([]); // [id, id, ...]
-  const [ready, setReady] = useState(false);
+ const [plan, setPlan] = useState([]);
+ const [saved, setSaved] = useState([]);
+ const [ready, setReady] = useState(false);
 
   // load from localStorage once, after the page opens in the browser
   useEffect(() => {
